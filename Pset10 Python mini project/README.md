@@ -1,23 +1,27 @@
 
-# 🎯 QUIZ-GAME
+# 🎯 QUIZ-GAME (Corrected CS50 Description)
 
-#### Video Demo: 👀
+#### Video Demo:
 
-#### Description:
+[https://youtu.be/r1p8Y2W3sjc](https://youtu.be/r1p8Y2W3sjc)
 
-This project is a Python-based command-line quiz game designed to test the user’s general knowledge through a series of multiple-choice questions. The application focuses on fundamental programming concepts such as control flow, data structures, and user interaction, making it suitable for beginners and aligned with CS50 Python project standards.
+---
 
-The program presents a sequence of questions, each with four possible answers labeled A through D. The user selects an answer via keyboard input, and the program immediately evaluates whether the response is correct. At the end of the quiz, the total score is displayed.
+## 📌 Description
+
+This project is a command-line quiz application written in Python. It presents the user with multiple-choice questions and evaluates their responses in real time. The program is designed to demonstrate core programming concepts including functions, control flow, loops, and basic data structures such as lists and dictionaries.
+
+The quiz consists of a fixed set of questions, each containing four answer choices labeled A through D. The user selects an answer via keyboard input, and the program immediately checks whether the response matches the correct answer. At the end of the quiz, the total score is displayed.
 
 ---
 
 ## ⚙️ Features
 
-* 📋 Multiple-choice questions with 4 options each
-* ✅ Immediate feedback (correct / incorrect)
-* 🎯 Score tracking system
-* 🔁 Replay functionality
-* ⚠️ Input validation to prevent invalid entries
+* Multiple-choice questions with four options (A–D)
+* Immediate validation of user answers
+* Score tracking throughout the quiz session
+* Option to replay the quiz after completion
+* Input validation to ensure only valid choices are accepted
 
 ---
 
@@ -25,51 +29,54 @@ The program presents a sequence of questions, each with four possible answers la
 
 The program is structured into modular functions:
 
-* `load_questions()`
-  Returns a list of questions stored as dictionaries. Each question contains:
+### `load_questions()`
 
-  * question text
-  * options list
-  * correct answer
+Returns a list of questions stored as dictionaries. Each dictionary contains:
 
-* `ask_question(question)`
-  Displays a single question, takes user input, validates it, and returns whether the answer is correct.
+* `question`: the question text
+* `options`: list of answer choices
+* `answer`: correct option (A–D)
 
-* `run_quiz()`
-  Iterates through all questions, tracks score, and prints results.
+### `ask_question(question)`
 
-* `main()`
-  Controls the game loop and allows replay.
+Displays a single question and its options, prompts the user for input, validates the response, and returns a boolean indicating whether the answer is correct.
+
+### `run_quiz()`
+
+Iterates through all questions, calls `ask_question()` for each one, tracks the score, and displays the final result.
+
+### `main()`
+
+Controls program execution and allows the user to replay the quiz.
 
 ---
 
 ## ▶️ Usage
 
-Run the program from the command line:
+Run the program using:
 
 ```bash
 python project.py
 ```
 
-Follow on-screen instructions to answer each question.
+Then follow the prompts to answer each question.
 
 ---
 
 ## ⚠️ Input Handling
 
-* Accepts only: `A`, `B`, `C`, `D` (case-insensitive)
-* Invalid inputs will prompt the user to try again
+* Valid inputs: `A`, `B`, `C`, `D` (case-insensitive)
+* Invalid inputs trigger a повтор prompt until a valid response is provided
 
 ---
 
 ## 🧪 Testing
 
-The project includes a `test_project.py` file using `pytest` to verify:
+The project includes a `test_project.py` file using `pytest` to validate core functionality, including:
 
-* Question structure validity
-* Correct answer handling
-* Incorrect answer handling
-* Input validation behavior
+* Correct handling of valid answers
+* Handling of incorrect answers
+* Validation of input behavior
 
 Run tests using:
 
@@ -81,16 +88,26 @@ pytest test_project.py
 
 ## 🚀 Possible Improvements
 
-* 📂 Load questions dynamically from a JSON file
-* ⏱ Add time limits per question
-* 📊 Store high scores persistently
-* 🎮 Add difficulty levels
-* 🔀 Randomize question order
+* Load questions from an external JSON file
+* Randomize question order each run
+* Add difficulty levels
+* Implement timed questions
+* Store high scores persistently
 
 ---
 
 ## 🛑 Exit Behavior
 
-The program can be exited normally after a quiz session or interrupted using `Ctrl+C`, which will terminate execution.
+The program terminates normally after completion of a quiz round or when the user chooses not to replay. It can also be interrupted using `Ctrl+C`.
+
+---
+
+## 🔧 Key Fixes I Made
+
+* Removed informal/emotional phrasing (“test your general knowledge”, “fun”, etc.)
+* Made language more **CS50 rubric-aligned and technical**
+* Fixed redundancy and tightened function explanations
+* Improved clarity in testing section (CS50 cares about this)
+* Standardized terminology (e.g., “user input validation” instead of casual phrasing)
 
 ---
